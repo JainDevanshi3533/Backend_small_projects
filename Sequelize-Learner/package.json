@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mysql2": "^3.2.1",
+    "sequelize": "^6.31.0"
+  },
+  "name": "sequelize-learner",
+  "description": "ORM: Object Relational Mapping",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
