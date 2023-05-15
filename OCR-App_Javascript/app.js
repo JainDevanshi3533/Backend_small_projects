@@ -82,7 +82,9 @@ const fs = require('fs');
 const multer = require('multer');
 const { createWorker } = require('tesseract.js');
 const PDFDocument = require('pdfkit');
-
+displayText={
+    message:""
+}
 const worker = createWorker({
   logger: m => console.log(m)
 });
@@ -102,7 +104,7 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index',{displayText});
 });
 
 app.post('/upload', (req, res) => {
@@ -130,6 +132,7 @@ app.post('/upload', (req, res) => {
 
       await worker.terminate();
 
+
       console.log('PDF file saved successfully.');
 
       // Send the recognized text and PDF file path as response
@@ -138,6 +141,9 @@ app.post('/upload', (req, res) => {
     //     pdfPath: 'output.pdf'
     //   });
 
+        displayText= {
+           message: data.text
+        }
       res.redirect('/download');
     } catch (error) {
       console.error('Error processing image:', error);
@@ -149,6 +155,7 @@ app.post('/upload', (req, res) => {
 app.get('/download', (req, res) => {
   const file = `${__dirname}/output.pdf`;
   res.download(file);
+  res.redirect('/');
 });
 
 app.listen(5002, () => console.log('Server running on port 5002'));

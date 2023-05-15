@@ -7,14 +7,43 @@
     <title>Document</title>
     <!-- v4 -->
 <script src='https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js'></script>
+    <style>
+        *{
+            text-align: center;
+        }
+        body{
+            background-color: rgb(158, 201, 202);
+        }
+        form{
+            margin:5%;
+        }
+        form input,button{
+            font-size: 1.3rem;
+        }
+
+        .display{
+            margin:auto;
+            min-height: 300px;
+            width:80%;
+            height:auto;
+            border:2px solid gray;
+            background-color: rgb(7, 40, 32);
+            color:white;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+    </style>
+    <script src="app.js"></script>
 </head>
 <body>
     <h1>Image to PDF</h1>
+    <hr>
     <form action ="/upload" method="POST" enctype="multipart/form-data">
         <input type="file" name="avatar" />
         <button type="submit">Convert</button>
+       
     </form>
-
+    <div class="display"><%= displayText.message %></div>
     <!-- v4 -->
 <script src='https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js'></script>
 </body>
