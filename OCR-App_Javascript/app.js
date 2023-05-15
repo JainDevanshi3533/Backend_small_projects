@@ -75,16 +75,23 @@ app.post('/upload', (req, res) => {
 
       console.log('PDF file saved successfully.');
 
-      // Send the recognized text and PDF file path as response
+    //   Send the recognized text and PDF file path as response
       res.send({
         text: data.text,
         pdfPath: 'output.pdf'
       });
+
+    res.redirect('/download');
     } catch (error) {
       console.error('Error processing image:', error);
       res.status(500).send('Processing failed');
     }
   });
 });
+
+app.get('/download',(req,res)=>{
+    const file = `${__dirname}/output.pdf`;
+    res.download(file);
+})
 
 app.listen(5002,()=>  console.log('server running on 5002'));
