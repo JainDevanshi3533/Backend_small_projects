@@ -6,33 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- v4 -->
-<script src='https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js'></script>
-    <style>
-        *{
-            text-align: center;
-        }
-        body{
-            background-color: rgb(158, 201, 202);
-        }
-        form{
-            margin:5%;
-        }
-        form input,button,select{
-            font-size: 1.3rem;
-        }
+    <script src='https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js'></script>  
+    <link rel="stylesheet" href="/css/styles.css">
 
-        .display{
-            margin:30px auto;
-            min-height: 300px;
-            width:80%;
-            height:auto;
-            border:2px solid gray;
-            background-color: rgb(7, 40, 32);
-            color:white;
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-    </style>
 </head>
 <body>
     <h1>Image to PDF</h1>
@@ -47,9 +23,14 @@
         <button type="submit">Convert</button>
        
     </form>
-    <div class="display"><%= displayText.message %></div>
+    <div class="display">
+        <div id="copy" onclick="copyToClipboard()"> Copy</div>
+        <div id="main-text"><%= displayText.message %></div>
+        
+    </div>
     <button id="down" onclick="location.href='/download'">Download the pdf</button>
     <!-- v4 -->
 <script src='https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js'></script>
+<script src="/js/script.js"></script>
 </body>
 </html>
