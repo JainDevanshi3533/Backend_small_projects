@@ -17,12 +17,12 @@
         form{
             margin:5%;
         }
-        form input,button{
+        form input,button,select{
             font-size: 1.3rem;
         }
 
         .display{
-            margin:auto;
+            margin:30px auto;
             min-height: 300px;
             width:80%;
             height:auto;
@@ -33,17 +33,22 @@
             font-weight: 300;
         }
     </style>
-    <script src="app.js"></script>
 </head>
 <body>
     <h1>Image to PDF</h1>
     <hr>
     <form action ="/upload" method="POST" enctype="multipart/form-data">
         <input type="file" name="avatar" />
+        <select name="language">
+            <option value="eng">English</option>
+            <option value="hin">Hindi</option>
+            <option value="pan">Punjabi</option>
+        </select>
         <button type="submit">Convert</button>
        
     </form>
     <div class="display"><%= displayText.message %></div>
+    <button id="down" onclick="location.href='/download'">Download the pdf</button>
     <!-- v4 -->
 <script src='https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js'></script>
 </body>
